@@ -54,9 +54,10 @@ struct AdjUnit <Empty> {
   };
 } __attribute__((packed));
 
+// DCSR、DCSC中使用，参考论文4.2节，其将vtx和off合并到该结构体中
 struct CompressedAdjIndexUnit {
-  EdgeId index;
-  VertexId vertex;
+  EdgeId index;       //顶点边在边列表中的开始索引位置
+  VertexId vertex;   //有出边或入边的顶点
 } __attribute__((packed));
 
 template <typename EdgeData>
